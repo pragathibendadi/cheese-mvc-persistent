@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="fragments :: head"></head>
+
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+
+<p th:unless="${categoroies} and ${categories.size()}">no category :(</p>
+
+<ul >
+    <li th:each="category : ${categories}"><a th:href="'cheese/category?id=' + ${categoryid()}"  th:text="${category.getName()}" /></li>
+
+</ul>
+
+<p>
+
+    <a href="/category/add">Add category</a>
+</p>
+</body>
+</html>
