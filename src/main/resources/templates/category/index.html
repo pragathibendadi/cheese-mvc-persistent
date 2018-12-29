@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
 <head th:replace="fragments :: head"></head>
 
@@ -9,10 +9,10 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 
-<p th:unless="${categoroies} and ${categories.size()}">no category :(</p>
+<p th:unless="${categories} and ${categories.size()}">no category :(</p>
 
-<ul >
-    <li th:each="category : ${categories}"><a th:href="'cheese/category?id=' + ${categoryid()}"  th:text="${category.getName()}" /></li>
+<ul  th:each="category : ${categories}">
+    <li th:text="${category.name}"><a th:href="'cheese/category?id=' + ${category.id}"  th:text="${category.name}"></a></li>
 
 </ul>
 
